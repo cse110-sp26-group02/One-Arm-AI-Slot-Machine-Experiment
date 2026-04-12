@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Slot Machine: Waste Your Intelligence</title>
+    <style>
+        body { font-family: 'Courier New', monospace; background: #1a1a1a; color: #00ff00; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        .slot-machine { border: 5px solid #333; padding: 20px; background: #222; border-radius: 15px; box-shadow: 0 0 20px #000; }
+        .reels { display: flex; gap: 10px; margin-bottom: 20px; }
+        .reel { width: 80px; height: 100px; border: 2px solid #444; display: flex; align-items: center; justify-content: center; font-size: 40px; background: #000; }
+        button { background: #00ff00; color: #000; border: none; padding: 10px 20px; font-weight: bold; cursor: pointer; font-size: 18px; }
+        button:disabled { background: #444; }
+        #status { margin-top: 20px; font-size: 1.2em; height: 3em; }
+    </style>
+</head>
+<body>
+    <h1>AI Slot Machine</h1>
+    <div class="slot-machine">
+        <div class="reels">
+            <div id="reel1" class="reel">?</div>
+            <div id="reel2" class="reel">?</div>
+            <div id="reel3" class="reel">?</div>
+        </div>
+        <button id="spin">Spin (Cost: 10 Tokens)</button>
+        <p>Tokens: <span id="tokens">100</span></p>
+    </div>
+    <div id="status">Ready to waste your intelligence?</div>
+
+    <script>
+        const symbols = ['🤖', '🧠', '📉', '⚡', '🚫', '🤡'];
+        let tokens = 100;
+        const spinBtn = document.getElementById('spin');
+        const tokenDisplay = document.getElementById('tokens');
+        const statusDisplay = document.getElementById('status');
+
+        spinBtn.addEventListener('click', () => {
+            if (tokens < 10) { statusDisplay.innerText = "Out of tokens. Your intelligence is bankrupt."; return; }
+            tokens -= 10;
+            tokenDisplay.innerText = tokens;
+            statusDisplay.innerText = "Processing LLM hallucination...";
+            
+            const results = [
+                symbols[Math.floor(Math.random() * symbols.length)],
+                symbols[Math.floor(Math.random() * symbols.length)],
+                symbols[Math.floor(Math.random() * symbols.length)]
+            ];
+            
+            document.getElementById('reel1').innerText = results[0];
+            document.getElementById('reel2').innerText = results[1];
+            document.getElementById('reel3').innerText = results[2];
+
+            if (results[0] === results[1] && results[1] === results[2]) {
+                tokens += 50;
+                tokenDisplay.innerText = tokens;
+                statusDisplay.innerText = "JACKPOT! The AI generated a useful output for once!";
+            } else {
+                statusDisplay.innerText = "AI failed to reach consensus. Try again.";
+            }
+        });
+    </script>
+</body>
+</html>
