@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The AI "Intelligence" Slot Machine</title>
+    <style>
+        body { font-family: 'Courier New', monospace; background: #1a1a1a; color: #00ff00; text-align: center; padding: 20px; }
+        .container { max-width: 600px; margin: auto; border: 2px solid #00ff00; padding: 20px; background: #000; }
+        .reels { display: flex; justify-content: center; gap: 10px; margin: 20px 0; }
+        .reel { width: 80px; height: 80px; border: 2px solid #333; display: flex; align-items: center; justify-content: center; font-size: 2em; background: #111; }
+        button { background: #00ff00; color: #000; border: none; padding: 10px 20px; font-weight: bold; cursor: pointer; }
+        button:disabled { background: #555; }
+        #status { margin: 15px 0; font-style: italic; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>AI-Slot-Machine</h1>
+        <p>Tokens: <span id="tokens">100</span></p>
+        <div class="reels">
+            <div class="reel" id="r1">?</div>
+            <div class="reel" id="r2">?</div>
+            <div class="reel" id="r3">?</div>
+        </div>
+        <button id="spin">Waste Compute (Spin)</button>
+        <p id="status">Ready to hallucinate?</p>
+    </div>
+    <script>
+        const symbols = ['🤖', '💾', '📉', '🧠', '🚫', '🤡'];
+        const tokensDisplay = document.getElementById('tokens');
+        const statusDisplay = document.getElementById('status');
+        let tokens = 100;
+
+        document.getElementById('spin').addEventListener('click', () => {
+            if (tokens < 10) { statusDisplay.innerText = "Out of tokens. Go train a model."; return; }
+            tokens -= 10;
+            tokensDisplay.innerText = tokens;
+            
+            const r1 = symbols[Math.floor(Math.random() * symbols.length)];
+            const r2 = symbols[Math.floor(Math.random() * symbols.length)];
+            const r3 = symbols[Math.floor(Math.random() * symbols.length)];
+            
+            document.getElementById('r1').innerText = r1;
+            document.getElementById('r2').innerText = r2;
+            document.getElementById('r3').innerText = r3;
+            
+            if (r1 === r2 && r2 === r3) {
+                tokens += 50;
+                tokensDisplay.innerText = tokens;
+                statusDisplay.innerText = "Jackpot! You successfully guessed the next token.";
+            } else {
+                statusDisplay.innerText = "Hallucination detected. Try again.";
+            }
+        });
+    </script>
+</body>
+</html>

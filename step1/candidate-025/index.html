@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One-Arm AI Slot Machine</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; background: #222; color: #eee; }
+        .slots { display: flex; justify-content: center; gap: 10px; font-size: 4rem; margin: 20px 0; }
+        .slot { border: 2px solid #555; padding: 20px; width: 60px; height: 60px; line-height: 60px; background: #333; }
+        button { padding: 10px 20px; font-size: 1.2rem; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>One-Arm AI Slot Machine</h1>
+    <div id="tokens">Tokens: 100</div>
+    <div class="slots">
+        <div class="slot" id="s1">?</div>
+        <div class="slot" id="s2">?</div>
+        <div class="slot" id="s3">?</div>
+    </div>
+    <button onclick="spin()">Spin (Cost: 10 Tokens)</button>
+    <p id="msg"></p>
+
+    <script>
+        let tokens = 100;
+        const symbols = ['🤖', '🤡', '🧠', '📉', '💸'];
+        function spin() {
+            if (tokens < 10) { msg.innerText = "Out of tokens! Buy more intelligence (fake money)."; return; }
+            tokens -= 10;
+            const res = [
+                symbols[Math.floor(Math.random()*symbols.length)],
+                symbols[Math.floor(Math.random()*symbols.length)],
+                symbols[Math.floor(Math.random()*symbols.length)]
+            ];
+            document.getElementById('s1').innerText = res[0];
+            document.getElementById('s2').innerText = res[1];
+            document.getElementById('s3').innerText = res[2];
+            
+            if (res[0] === res[1] && res[1] === res[2]) {
+                tokens += 50;
+                msg.innerText = "Jackpot! AI actually predicted something right!";
+            } else {
+                msg.innerText = "Hallucination error. Try again.";
+            }
+            document.getElementById('tokens').innerText = `Tokens: ${tokens}`;
+        }
+    </script>
+</body>
+</html>
