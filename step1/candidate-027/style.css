@@ -1,0 +1,47 @@
+body {
+    background: #1a1a2e;
+    color: #e94560;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+.container {
+    text-align: center;
+    background: #16213e;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+.reels {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+.reel {
+    width: 60px;
+    height: 60px;
+    background: #0f3460;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    border: 2px solid #e94560;
+}
+button {
+    background: #e94560;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+button:disabled {
+    background: #555;
+}
+#message {
+    margin-top: 20px;
+    font-style: italic;
+}
