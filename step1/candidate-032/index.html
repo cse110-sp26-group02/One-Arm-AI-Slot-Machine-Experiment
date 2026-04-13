@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Overlord Slots</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; background: #1a1a1a; color: #00ff00; }
+        .slots { display: flex; justify-content: center; gap: 20px; font-size: 4rem; margin: 20px; }
+        .slot { border: 2px solid #00ff00; padding: 20px; width: 80px; }
+        #message { height: 2rem; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>AI Hallucination Slot Machine</h1>
+    <div id="tokens">Tokens: 100</div>
+    <div class="slots">
+        <div class="slot" id="s1">🤖</div>
+        <div class="slot" id="s2">🤖</div>
+        <div class="slot" id="s3">🤖</div>
+    </div>
+    <button onclick="spin()">Spin (-10 Tokens)</button>
+    <div id="message"></div>
+
+    <script>
+        let tokens = 100;
+        const symbols = ['🤖', '🤡', '📉', '💸', '🧠'];
+        function spin() {
+            if (tokens < 10) { alert("AI has drained your funds!"); return; }
+            tokens -= 10;
+            const res = [
+                symbols[Math.floor(Math.random() * symbols.length)],
+                symbols[Math.floor(Math.random() * symbols.length)],
+                symbols[Math.floor(Math.random() * symbols.length)]
+            ];
+            document.getElementById('s1').innerText = res[0];
+            document.getElementById('s2').innerText = res[1];
+            document.getElementById('s3').innerText = res[2];
+            
+            if (res[0] === res[1] && res[1] === res[2]) {
+                tokens += 50;
+                document.getElementById('message').innerText = "You beat the algorithm! (Temporarily)";
+            } else {
+                document.getElementById('message').innerText = "The AI predicts you lose.";
+            }
+            document.getElementById('tokens').innerText = `Tokens: ${tokens}`;
+        }
+    </script>
+</body>
+</html>
