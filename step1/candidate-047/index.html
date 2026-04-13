@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Singularity Spinner</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <h1>Singularity Spinner: Your Job is Already Gone</h1>
+        <div id="status-ticker">System Status: Awaiting human input...</div>
+        
+        <div class="slot-machine">
+            <div class="reel" id="reel1">?</div>
+            <div class="reel" id="reel2">?</div>
+            <div class="reel" id="reel3">?</div>
+        </div>
+
+        <div class="controls">
+            <div class="stats">
+                Tokens: <span id="balance">100</span> | Compute Cost: <span id="bet">10</span>
+            </div>
+            <button id="spin-btn">Submit Prompt</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
