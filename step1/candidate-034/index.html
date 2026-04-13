@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGI Slot Machine</title>
+    <style>
+        body { font-family: sans-serif; text-align: center; background: #111; color: #0f0; }
+        #slots { display: flex; justify-content: center; gap: 20px; font-size: 4rem; margin: 20px; }
+        .slot { border: 2px solid #0f0; padding: 20px; width: 80px; }
+        button { padding: 15px 30px; font-size: 1.5rem; background: #0f0; border: none; cursor: pointer; }
+        button:disabled { background: #555; }
+    </style>
+</head>
+<body>
+    <h1>"AGI" Slot Machine</h1>
+    <p>Tokens: <span id="tokens">100</span></p>
+    <div id="slots"><div class="slot">?</div><div class="slot">?</div><div class="slot">?</div></div>
+    <button id="spin">Spin (Cost: 10 Tokens)</button>
+    <p id="msg"></p>
+    <script>
+        let tokens = 100;
+        const symbols = ["🤖", "📉", "🧠", "🔥", "🤡", "💸"];
+        const spinBtn = document.getElementById('spin');
+        
+        spinBtn.addEventListener('click', () => {
+            if (tokens < 10) return alert("Out of tokens! AI has drained your wallet.");
+            tokens -= 10;
+            const res = [symbols[Math.floor(Math.random()*6)], symbols[Math.floor(Math.random()*6)], symbols[Math.floor(Math.random()*6)]];
+            document.querySelectorAll('.slot').forEach((s, i) => s.textContent = res[i]);
+            if (res[0] === res[1] && res[1] === res[2]) {
+                tokens += 50;
+                document.getElementById('msg').textContent = "AGI Con! You won 50 tokens!";
+            } else {
+                document.getElementById('msg').textContent = "Hallucination... try again.";
+            }
+            document.getElementById('tokens').textContent = tokens;
+        });
+    </script>
+</body>
+</html>
