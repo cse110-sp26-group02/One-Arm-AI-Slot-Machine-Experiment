@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Generative Casino</h1>
+            <div class="stats">
+                <div class="stat-box">
+                    <span class="label">Context Window:</span>
+                    <span id="balance" class="value">1000</span> <span class="unit">tokens</span>
+                </div>
+                <div class="stat-box">
+                    <span class="label">Cost per Inference:</span>
+                    <span id="cost" class="value">10</span> <span class="unit">tokens</span>
+                </div>
+            </div>
+        </header>
+
+        <main class="slot-machine">
+            <div class="reels-container">
+                <div class="reel" id="reel-0">
+                    <div class="symbols"></div>
+                </div>
+                <div class="reel" id="reel-1">
+                    <div class="symbols"></div>
+                </div>
+                <div class="reel" id="reel-2">
+                    <div class="symbols"></div>
+                </div>
+            </div>
+            
+            <div class="controls">
+                <button id="spin-button" class="btn">Generate Tokens (Spin)</button>
+            </div>
+
+            <div class="status-board">
+                <p id="status-message">Awaiting prompt...</p>
+            </div>
+        </main>
+        
+        <footer>
+            <p>Paytable: 🧠🧠🧠 (+500), 🤖🤖🤖 (+250), 📈📈📈 (+100), 💸💸💸 (-50)</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

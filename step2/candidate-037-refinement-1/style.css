@@ -1,0 +1,44 @@
+body {
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #121212;
+    color: #00ff00;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    text-align: center;
+    border: 2px solid #00ff00;
+    padding: 20px;
+    background: #1e1e1e;
+}
+
+.slots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    font-size: 3rem;
+    margin: 20px 0;
+}
+
+.slot {
+    border: 1px solid #333;
+    padding: 10px;
+    width: 60px;
+}
+
+button {
+    background: #00ff00;
+    color: #121212;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:disabled {
+    background: #555;
+}

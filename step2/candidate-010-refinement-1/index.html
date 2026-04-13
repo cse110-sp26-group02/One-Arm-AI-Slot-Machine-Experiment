@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Overlord Slot Machine</title>
+    <style>
+        body { font-family: 'Courier New', Courier, monospace; background: #000; color: #0f0; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100vh; margin: 0; }
+        #game-container { border: 2px solid #0f0; padding: 20px; text-align: center; width: 300px; }
+        .slot { font-size: 3rem; margin: 10px; display: inline-block; width: 50px; height: 50px; border: 1px solid #0f0; line-height: 50px; }
+        button { background: #0f0; color: #000; border: none; padding: 10px 20px; font-weight: bold; cursor: pointer; margin-top: 20px; }
+        button:disabled { background: #050; }
+        #message { margin-top: 15px; height: 2em; }
+    </style>
+</head>
+<body>
+    <h1>AI Slot Machine</h1>
+    <p>Tokens: <span id="tokens">100</span></p>
+    <div id="game-container">
+        <div class="slot" id="slot1">?</div>
+        <div class="slot" id="slot2">?</div>
+        <div class="slot" id="slot3">?</div>
+        <br>
+        <button id="spin-btn">Spin for Knowledge</button>
+        <div id="message"></div>
+    </div>
+    <script>
+        const symbols = ['🤖', '🧠', '💾', '⚡', '🚫'];
+        let tokens = 100;
+        const spinBtn = document.getElementById('spin-btn');
+        const tokenDisplay = document.getElementById('tokens');
+        const msgDisplay = document.getElementById('message');
+
+        spinBtn.addEventListener('click', () => {
+            if (tokens < 10) { msgDisplay.textContent = "Insufficient intelligence!"; return; }
+            tokens -= 10;
+            tokenDisplay.textContent = tokens;
+            
+            const results = [
+                symbols[Math.floor(Math.random() * symbols.length)],
+                symbols[Math.floor(Math.random() * symbols.length)],
+                symbols[Math.floor(Math.random() * symbols.length)]
+            ];
+            
+            document.getElementById('slot1').textContent = results[0];
+            document.getElementById('slot2').textContent = results[1];
+            document.getElementById('slot3').textContent = results[2];
+
+            if (results[0] === results[1] && results[1] === results[2]) {
+                tokens += 50;
+                tokenDisplay.textContent = tokens;
+                msgDisplay.textContent = "AI Gained Consciousness! +50";
+            } else {
+                msgDisplay.textContent = "AI hallucinated... -10";
+            }
+        });
+    </script>
+</body>
+</html>
