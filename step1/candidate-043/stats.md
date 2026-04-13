@@ -16,5 +16,5 @@
 | Files produced | 3: index.html, script.js, style.css|
 | Lines of code | 345 |
 | Runs in browser? | Yes |
-| App Quality Notes | - It works perfectly and has good presentation  |
+| App Quality Notes | - It works well and has good presentation, but the number of tokens awarded does not always match the number on the win message.  |
 | Code Quality Notes | - Code is clean and well-commented. |
