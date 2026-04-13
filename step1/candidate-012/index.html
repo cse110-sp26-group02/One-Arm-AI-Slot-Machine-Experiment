@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Model Collapse - AI Token Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>MODEL COLLAPSE</h1>
+            <p class="subtitle">Burn tokens. Generate "Value".</p>
+        </header>
+
+        <div class="stats-bar">
+            <div class="stat">
+                <span class="label">Tokens:</span>
+                <span id="token-count" class="value">1000</span>
+            </div>
+            <div class="stat">
+                <span class="label">Context Window:</span>
+                <span id="context-usage" class="value">0%</span>
+            </div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel-1"><div class="reel-content">🤖</div></div>
+                <div class="reel" id="reel-2"><div class="reel-content">🤖</div></div>
+                <div class="reel" id="reel-3"><div class="reel-content">🤖</div></div>
+            </div>
+            <div class="win-message" id="status-display">Ready for Inference...</div>
+        </div>
+
+        <div class="controls">
+            <div class="control-group">
+                <label for="system-prompt">System Prompt:</label>
+                <textarea id="system-prompt" placeholder="You are a helpful assistant that wins at slots..."></textarea>
+            </div>
+            
+            <div class="control-group">
+                <label for="temperature">Temperature (Risk): <span id="temp-val">0.7</span></label>
+                <input type="range" id="temperature" min="0" max="2" step="0.1" value="0.7">
+            </div>
+            
+            <button id="spin-button">RUN INFERENCE (-50 Tokens)</button>
+        </div>
+
+        <div class="legend">
+            <h3>Reward Weights</h3>
+            <ul>
+                <li>🤖 🤖 🤖 : AGI Achieved (5000)</li>
+                <li>💰 💰 💰 : VC Funding (1000)</li>
+                <li>⚡ ⚡ ⚡ : H100 Cluster (500)</li>
+                <li>🧠 🧠 🧠 : Emergent Behavior (200)</li>
+                <li>🦜 🦜 🦜 : Stochastic Parrot (50)</li>
+                <li>📉 📉 📉 : Hallucination (-100)</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

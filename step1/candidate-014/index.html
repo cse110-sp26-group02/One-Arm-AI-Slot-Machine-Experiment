@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LLM Token Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🎰 The Stochastic Parrot Casino 🦜</h1>
+        <p class="subtitle">Spend tokens, hallucinate wins!</p>
+        
+        <div class="stats">
+            <div class="stat-box">
+                <span class="label">Context Window:</span>
+                <span id="balance" class="value">1000 Tokens</span>
+            </div>
+            <div class="stat-box">
+                <span class="label">Cost per inference:</span>
+                <span class="value">100 Tokens</span>
+            </div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="reels-container">
+                <div class="reel" id="reel1"><div class="symbol">🤖</div></div>
+                <div class="reel" id="reel2"><div class="symbol">🤖</div></div>
+                <div class="reel" id="reel3"><div class="symbol">🤖</div></div>
+            </div>
+            <div class="win-line"></div>
+        </div>
+
+        <div class="controls">
+            <button id="spin-btn" class="generate-btn">
+                <span class="btn-text">Generate()</span>
+                <span class="btn-subtext">-100 Tokens</span>
+            </button>
+        </div>
+
+        <div id="message-display" class="message-area">
+            Welcome to the latent space! Ready to generate.
+        </div>
+        
+        <div class="paytable">
+            <h3>Reward Function</h3>
+            <ul>
+                <li>✨✨✨ AGI Achieved: +10000 Tokens</li>
+                <li>🖥️🖥️🖥️ H100 Cluster: +5000 Tokens</li>
+                <li>🧠🧠🧠 Galaxy Brain: +1000 Tokens</li>
+                <li>🦜🦜🦜 Stochastic Parrot: +500 Tokens</li>
+                <li>🌶️🌶️🌶️ Spicy Autocomplete: +300 Tokens</li>
+                <li>🗑️🗑️🗑️ Garbage Output: +0 Tokens (Still charged)</li>
+                <li>Any 2 matching: +50 Tokens (Partial Match)</li>
+            </ul>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

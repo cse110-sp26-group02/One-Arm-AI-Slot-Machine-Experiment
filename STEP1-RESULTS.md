@@ -1,10 +1,15 @@
 ## Pick top 5 candidates out of 50
-1. Candidate 1
-2. Candidate 4
-3. Candidate 37
-4. Candidate 10
-5. Candidate 30
+1. candidate-037
+2. candidate-010
+3. candidate-045
+4. candidate-001
+5. candidate-004
 
-Explain reasoning:
+## Reasoning
+- App functionality was paramount - what mattered most was that it worked
+- UI being more intuitive helped
+- Having a defined colour scheme made it easier to look at (minimal is okay)
+- Emojis made it fun to look at
+- A clear theme throughout the website helped
+- Clear distinction between styling, html and logic made reading the code easier
 
-We found that the User Interfaces of these candidates looks the best and feels the smoothest. This also played a role in shaping the experience of using the actual machine and so we found that these candidates were the most fun to use. Logic was also considered and we found that these candidates followed the prompt well the most. We learned that no two outputs are the same even with the same prompt across the 50 runs. They all follow the general gist of the game but they all are different in some way.
