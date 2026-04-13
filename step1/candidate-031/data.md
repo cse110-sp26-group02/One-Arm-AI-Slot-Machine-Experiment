@@ -1,6 +1,6 @@
 | Field | Notes | 
 | --- | --- |
-| Run ID | e.g. candidate-031 |
+| Run ID | candidate-031 |
 | Timestamp | 2026-04-13T05:48:29.134Z |
 | Model + version string | gemini-3.1-flash-lite-preview |
 | Input tokens | 5,467 |
