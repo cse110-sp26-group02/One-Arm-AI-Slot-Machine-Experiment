@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Artificial Intelligence Token Grinder</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="app-container">
+        <header>
+            <h1>The Artificial Intelligence <span class="accent">Token Grinder</span></h1>
+            <p class="subtitle">Training models on your losses since GPT-0.5.</p>
+        </header>
+
+        <main class="model-interface">
+            <div class="stats-bar">
+                <div class="stat">
+                    <span class="stat-label">COMPUTE CREDITS</span>
+                    <span id="credits" class="stat-value">100</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-label">BURN RATE</span>
+                    <span id="burn-rate" class="stat-value">10 tokens/gen</span>
+                </div>
+            </div>
+
+            <div class="reels-container">
+                <div class="reel" id="reel1">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="reel" id="reel2">
+                    <div class="reel-strip"></div>
+                </div>
+                <div class="reel" id="reel3">
+                    <div class="reel-strip"></div>
+                </div>
+            </div>
+
+            <button id="generate-btn" class="generate-button">GENERATE RESPONSE</button>
+        </main>
+
+        <footer class="console">
+            <div class="console-header">MODEL STATUS: <span id="model-status">READY</span></div>
+            <div id="status-log" class="console-log">
+                <p>> Initialize sequence...</p>
+                <p>> System optimized for token burning.</p>
+            </div>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
