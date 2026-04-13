@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI-Satire Slot Machine - Context Window</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Context Slot Machine</h1>
+            <p class="subtitle">Predicting AGI since 2022</p>
+        </header>
+
+        <div class="stats">
+            <div class="stat-box">
+                <span class="label">Context Tokens:</span>
+                <span id="balance" class="value">8192</span>
+            </div>
+            <div class="stat-box">
+                <span class="label">Prompt Cost:</span>
+                <span class="value">128</span>
+            </div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel1">
+                    <div class="symbol-container" id="symbols1">
+                        <div class="symbol">🤖</div>
+                    </div>
+                </div>
+                <div class="reel" id="reel2">
+                    <div class="symbol-container" id="symbols2">
+                        <div class="symbol">🤖</div>
+                    </div>
+                </div>
+                <div class="reel" id="reel3">
+                    <div class="symbol-container" id="symbols3">
+                        <div class="symbol">🤖</div>
+                    </div>
+                </div>
+            </div>
+            <button id="spin-btn">SEND PROMPT</button>
+        </div>
+
+        <div id="message-area" class="message-area">
+            Welcome to the Context Window. Send a prompt to begin generation.
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
