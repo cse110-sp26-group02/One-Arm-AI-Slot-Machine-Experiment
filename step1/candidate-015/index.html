@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Gambler</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>AI Token Gambler</h1>
+            <p>Spend context, win hallucinations!</p>
+        </header>
+
+        <main>
+            <div class="machine">
+                <div class="slots">
+                    <div class="slot" id="slot1">🤖</div>
+                    <div class="slot" id="slot2">🧠</div>
+                    <div class="slot" id="slot3">🚀</div>
+                </div>
+            </div>
+
+            <div class="controls">
+                <div class="stats">
+                    <div class="stat-box">
+                        <span class="label">Balance:</span>
+                        <span id="balance">1000</span> <span class="unit">Tokens</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="label">Cost:</span>
+                        <span id="cost">10</span> <span class="unit">Tokens/Spin</span>
+                    </div>
+                </div>
+                <button id="spin-button" class="btn">Generate Response (Spin)</button>
+            </div>
+
+            <div class="message-board" id="message-board">
+                Ready for prompt injection...
+            </div>
+        </main>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
