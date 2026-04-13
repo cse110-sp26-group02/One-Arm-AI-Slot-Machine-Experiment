@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Token Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="terminal-container">
+        <header>
+            <h1>LLM SLOT MACHINE v1.0.4</h1>
+            <div class="status-bar">
+                <span id="token-balance">Tokens: 10,000</span>
+                <span id="status-message">Ready to Compute...</span>
+            </div>
+        </header>
+
+        <main class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel-1">🧠</div>
+                <div class="reel" id="reel-2">🧠</div>
+                <div class="reel" id="reel-3">🧠</div>
+            </div>
+
+            <div class="controls">
+                <button id="spin-btn">GENERATE RESPONSE</button>
+            </div>
+        </main>
+
+        <section class="paytable">
+            <h3>Reward Weights (Logits)</h3>
+            <ul>
+                <li>🧠 🧠 🧠 : +5,000 Tokens (Singularity)</li>
+                <li>💾 💾 💾 : +2,000 Tokens (Big Data)</li>
+                <li>⚡ ⚡ ⚡ : +1,000 Tokens (Overclocked)</li>
+                <li>💬 💬 💬 : +500 Tokens (Standard Output)</li>
+                <li>Any 🐛 : -0 Tokens (Hallucination)</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>Caution: High temperature may lead to logic instability.</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
