@@ -1,15 +1,15 @@
 | Field   | Notes |
 |:----------:|:----------:|
 | Run ID |  candidate-011 |
-| Timestamp| 2026-04-13 15:58:35 |
+| Timestamp| 2026-04-13 16:01:33 |
 | Model + version string| gemini-3.1-pro-preview |
-| Input tokens | 47,244 |
-| Output tokens | 5,031 |
-| Total tokens | 52,275 |
+| Input tokens | TBD |
+| Output tokens | TBD |
+| Total tokens | TBD |
 | Wall-clock time (s) | 3m 14s|
-| Tool-reported time (s) | 31.0s|
+| Tool-reported time (s) | 38.0s|
 | Files produced | 1: index.html 2: style.css 3: script.js |
-| Lines of code | 447 |
+| Lines of code | COUNTING |
 | Runs in browser? | Yes |
 | App Quality Notes | - TBD <br>  |
 | Code Quality Notes | - TBD <br>  |
