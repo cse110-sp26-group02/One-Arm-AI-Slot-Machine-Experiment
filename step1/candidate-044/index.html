@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Slot Machine: The Token Burner</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="terminal-container">
+        <header class="terminal-header">
+            <div class="header-left">
+                <span class="prompt">guest@llm-gpu-01:~$</span> <span class="command">./spin_the_model.sh</span>
+            </div>
+            <div class="header-right">
+                <span class="label">TOTAL_COMPUTE_TOKENS:</span>
+                <span id="token-balance" class="value">1000000</span>
+            </div>
+        </header>
+
+        <main class="slot-machine">
+            <div class="reels-container">
+                <div class="reel" id="reel-0">
+                    <div class="symbol">🤖</div>
+                </div>
+                <div class="reel" id="reel-1">
+                    <div class="symbol">🤖</div>
+                </div>
+                <div class="reel" id="reel-2">
+                    <div class="symbol">🤖</div>
+                </div>
+                <div class="scanline"></div>
+            </div>
+
+            <div class="display-panel">
+                <div id="status-message" class="message">IDLE: READY TO BURN COMPUTE</div>
+            </div>
+
+            <div class="controls">
+                <div class="bet-info">
+                    <span class="label">COST_PER_SPIN:</span>
+                    <span class="value">1024 TOKENS</span>
+                </div>
+                <button id="spin-button" class="neon-button">EXECUTE_SPIN()</button>
+            </div>
+        </main>
+
+        <footer class="terminal-footer">
+            <p>// WARNING: HIGH PROBABILITY OF HALLUCINATION //</p>
+        </footer>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

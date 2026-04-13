@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Token Burner - AI Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>THE TOKEN BURNER</h1>
+            <p class="subtitle">Scaling laws in effect. Burn more tokens.</p>
+        </header>
+
+        <div class="stats-panel">
+            <div class="stat">
+                <span class="label">Context Window</span>
+                <span id="token-balance" class="value">100,000</span>
+                <span class="unit">TOKENS</span>
+            </div>
+            <div class="stat">
+                <span class="label">Compute Cost</span>
+                <span id="spin-cost" class="value">1,000</span>
+                <span class="unit">TOKENS/SPIN</span>
+            </div>
+        </div>
+
+        <div class="slot-machine">
+            <div class="reels">
+                <div class="reel" id="reel-1">
+                    <div class="reel-content">🧠</div>
+                </div>
+                <div class="reel" id="reel-2">
+                    <div class="reel-content">📈</div>
+                </div>
+                <div class="reel" id="reel-3">
+                    <div class="reel-content">💰</div>
+                </div>
+            </div>
+            <div class="indicator-line"></div>
+        </div>
+
+        <div class="controls">
+            <button id="spin-button">BURN TOKENS (SPIN)</button>
+        </div>
+
+        <div id="status-message" class="status-message hidden">
+            <!-- Messages will be injected here -->
+        </div>
+
+        <footer>
+            <p>&copy; 2026 AI Overlord Inc. "As an AI, I am not liable for losses."</p>
+        </footer>
+    </div>
+
+    <div id="modal-overlay" class="modal-overlay hidden">
+        <div class="modal">
+            <h2 id="modal-title">Hallucination Alert!</h2>
+            <p id="modal-content">As an AI, I have decided that your win was a prompt injection attempt. Winnings confiscated.</p>
+            <button id="modal-close">ACKNOWLEDGE BIAS</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
