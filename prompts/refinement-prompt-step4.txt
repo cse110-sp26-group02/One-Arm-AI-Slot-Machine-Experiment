@@ -1,0 +1,19 @@
+The slot machine should make fun of AI, as in you are winning tokens and spending tokens. Have the jokes be constantly unique per spin. The machine should have the 3 slots "spin", instead of just changing immediately and should display the number of tokens the user currently has, how much each spin costs, and if the user wins, it should show how many tokens they won.
+
+Add a slot machine sound each time they spin, also add sound when they win, and add a different sound when they run out of tokens.
+
+Add fireworks and confetti whenever the player wins
+
+Make sure the lever pivots at the correct point, not the center
+
+Make the icons move when the machine is spinning
+
+Carefully ensure that the results match what symbols are being shown on the machine
+
+Include cost per spin, potential winnings from doubles and triples (Paytable)
+
+Make sure the UI is pleasing to the eye and interactive so that it is fun to use.
+
+Include more humor and more jokes that make fun of AI.
+
+Include a minigame to get tokens back when there are no more.
