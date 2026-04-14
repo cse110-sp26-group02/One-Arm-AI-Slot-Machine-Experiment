@@ -7,30 +7,53 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <canvas id="confetti-canvas"></canvas>
+
     <div id="game-container">
         <h1>AI Overlord Slot Machine</h1>
-        <div id="stats">
-            <p>Tokens: <span id="token-count">100</span></p>
-            <p>Spin Cost: 5 Tokens</p>
-        </div>
+        <p class="subtitle">Donate your compute power (tokens) to the algorithm!</p>
         
-        <div id="slot-machine">
-            <div class="slot" id="slot1">?</div>
-            <div class="slot" id="slot2">?</div>
-            <div class="slot" id="slot3">?</div>
-            <div id="lever"></div>
+        <div class="hud">
+            <div id="stats">
+                <p>Tokens: <span id="token-count" class="highlight">100</span></p>
+                <p>Cost/Spin: <span class="highlight">10</span></p>
+            </div>
+            <div id="paytable">
+                <h3>Paytable</h3>
+                <ul>
+                    <li>3 Identical: <span class="highlight">+50</span> tokens</li>
+                    <li>2 Identical: <span class="highlight">+15</span> tokens</li>
+                </ul>
+            </div>
         </div>
 
-        <div id="message">Insert tokens to appease the AI Overlord.</div>
-
-        <div id="paytable">
-            <h3>Paytable</h3>
-            <ul>
-                <li>Double AI: 10 Tokens</li>
-                <li>Triple AI: 50 Tokens</li>
-            </ul>
+        <div class="machine-wrapper">
+            <div id="slot-machine">
+                <div class="slot-window"><div class="slot" id="slot1">❓</div></div>
+                <div class="slot-window"><div class="slot" id="slot2">❓</div></div>
+                <div class="slot-window"><div class="slot" id="slot3">❓</div></div>
+            </div>
+            <div id="lever-container">
+                <div id="lever-base"></div>
+                <div id="lever-arm">
+                    <div id="lever-knob"></div>
+                </div>
+            </div>
         </div>
+
+        <button id="spin-btn">SPIN TO FEED THE AI</button>
+        <p id="win-message"></p>
+        <p id="message">Insert tokens to start.</p>
     </div>
+    
+    <div id="minigame-container" class="hidden">
+        <h2>BANKRUPT!</h2>
+        <p>The AI requires more data. Prove your worth to earn tokens.</p>
+        <p>Click the anomalies (red squares) to harvest tokens!</p>
+        <div id="minigame-area"></div>
+        <button id="exit-minigame-btn" class="hidden">Return to Slots</button>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>
