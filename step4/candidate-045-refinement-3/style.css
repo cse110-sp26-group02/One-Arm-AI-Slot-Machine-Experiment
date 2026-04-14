@@ -1,86 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
 body {
-    background-color: #1a1a2e;
-    color: #e94560;
-    font-family: 'Courier New', Courier, monospace;
+    background: #0f0f13;
+    color: #e0e0e0;
+    font-family: 'Roboto', sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     margin: 0;
     overflow: hidden;
+    flex-direction: column;
 }
 
-#game-container {
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 100;
+}
+
+#game-container, #minigame-container {
     text-align: center;
-    background: #0f3460;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    background: linear-gradient(145deg, #1e1e24, #2a2a35);
+    padding: 30px;
+    border-radius: 20px;
+    border: 2px solid #4a4a5a;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(0,0,0,0.5);
+    max-width: 600px;
+    width: 90%;
+    position: relative;
     z-index: 10;
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: #00ffcc;
+    margin-top: 0;
+    text-shadow: 0 0 10px rgba(0, 255, 204, 0.5);
+}
+
+.subtitle {
+    color: #aaa;
+    font-style: italic;
+    margin-bottom: 20px;
+}
+
+.hud {
+    display: flex;
+    justify-content: space-between;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #333;
+}
+
+#stats {
+    text-align: left;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+#stats p { margin: 5px 0; }
+
+.highlight {
+    color: #ff0055;
+    font-family: 'Orbitron', sans-serif;
+    font-size: 20px;
+}
+
+#paytable {
+    text-align: right;
+    font-size: 14px;
+}
+
+#paytable h3 {
+    margin: 0 0 5px 0;
+    color: #ffaa00;
+}
+
+#paytable ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#paytable li { margin-bottom: 3px; }
+
+.machine-wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
 }
 
 #slot-machine {
     display: flex;
     justify-content: center;
-    align-items: center;
-    gap: 10px;
-    margin: 20px 0;
-    position: relative;
+    gap: 15px;
     padding: 20px;
-    background: #16213e;
-    border-radius: 10px;
+    background: #111;
+    border-radius: 15px;
+    border: 4px solid #555;
+    box-shadow: inset 0 0 30px rgba(0,0,0,0.8);
+}
+
+.slot-window {
+    width: 80px;
+    height: 100px;
+    background: #e0e0e0;
+    border: 4px solid #222;
+    border-radius: 8px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: inset 0 5px 10px rgba(0,0,0,0.5);
 }
 
 .slot {
-    width: 80px;
-    height: 80px;
-    background: white;
-    color: black;
-    font-size: 40px;
+    width: 100%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    border-radius: 5px;
-    transition: transform 0.1s;
+    font-size: 50px;
+    color: #000;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-shadow: 2px 2px 0px rgba(255,255,255,0.5);
 }
 
-#lever {
-    width: 20px;
-    height: 100px;
-    background: #e94560;
-    position: absolute;
-    right: -40px;
-    top: 20px;
-    border-radius: 10px;
-    transform-origin: 50% 10%;
+#lever-container {
+    position: relative;
+    width: 40px;
+    height: 140px;
+    margin-left: 10px;
     cursor: pointer;
-    transition: transform 0.2s;
 }
 
-#lever:active {
-    transform: rotate(45deg);
-}
-
-.spinning {
-    animation: spin-animation 0.1s infinite;
-}
-
-@keyframes spin-animation {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
-}
-
-.firework {
+#lever-base {
     position: absolute;
-    width: 5px;
-    height: 5px;
-    background-color: gold;
-    border-radius: 50%;
-    animation: explode 1s ease-out forwards;
+    bottom: 10px;
+    left: 5px;
+    width: 30px;
+    height: 60px;
+    background: #555;
+    border-radius: 5px;
+    border: 2px solid #333;
 }
 
-@keyframes explode {
-    0% { transform: scale(1); opacity: 1; }
-    100% { transform: scale(10); opacity: 0; }
+#lever-arm {
+    position: absolute;
+    bottom: 40px;
+    left: 15px;
+    width: 10px;
+    height: 100px;
+    background: linear-gradient(to right, #ccc, #fff, #ccc);
+    transform-origin: bottom center;
+    transition: transform 0.3s ease-in-out;
+    border-radius: 5px;
+    z-index: 2;
+}
+
+#lever-knob {
+    position: absolute;
+    top: -15px;
+    left: -10px;
+    width: 30px;
+    height: 30px;
+    background: radial-gradient(circle at 10px 10px, #ff4444, #aa0000);
+    border-radius: 50%;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 18px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    background: linear-gradient(to bottom, #00ffcc, #0088aa);
+    color: #000;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 255, 204, 0.4);
+    transition: all 0.2s;
+    text-transform: uppercase;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 7px 20px rgba(0, 255, 204, 0.6);
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 5px rgba(0, 255, 204, 0.4);
+}
+
+button:disabled {
+    background: #555;
+    color: #888;
+    box-shadow: none;
+    cursor: not-allowed;
+    transform: none;
+}
+
+#message {
+    margin-top: 15px;
+    font-size: 16px;
+    min-height: 24px;
+    color: #ccc;
+    font-style: italic;
+}
+
+#win-message {
+    font-size: 22px;
+    font-weight: bold;
+    color: #00ffcc;
+    min-height: 30px;
+    margin-top: 15px;
+    margin-bottom: 5px;
+    text-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
+}
+
+/* Minigame */
+.hidden { display: none !important; }
+
+#minigame-container {
+    margin-top: 20px;
+}
+
+#minigame-area {
+    width: 100%;
+    height: 300px;
+    background: #000;
+    border: 2px solid #ff0055;
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+    margin: 20px 0;
+    cursor: crosshair;
+}
+
+.anomaly {
+    width: 30px;
+    height: 30px;
+    background: #ff0055;
+    position: absolute;
+    border-radius: 5px;
+    box-shadow: 0 0 10px #ff0055;
+    transition: top 0.1s, left 0.1s;
 }
