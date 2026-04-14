@@ -11,5 +11,5 @@
 | Files produced | 1: index.html 2: style.css 3: script.js |
 | Lines of code | COUNTING |
 | Runs in browser? | Yes |
-| App Quality Notes | - TBD <br>  |
-| Code Quality Notes | - TBD <br>  |
+| App Quality Notes | - more interesting graphics <br> - good color coordination <br> - has appropriate sounds, unlike many others which do not include sounds <br> - wide variety of rewards <br> - partial reward logic included  |
+| Code Quality Notes | - acceptable/expected <br>  |
