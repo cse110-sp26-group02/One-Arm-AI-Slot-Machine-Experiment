@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Casino Royale Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="animated-background"></div>
+    <div class="container">
+        <h1>Golden Fortune</h1>
+        <div class="machine-body">
+            <div id="balance">Tokens: <span id="tokens">100</span></div>
+            <div class="slots-container">
+                <div class="slot" id="slot1">🤖</div>
+                <div class="slot" id="slot2">🤖</div>
+                <div class="slot" id="slot3">🤖</div>
+            </div>
+            <div id="lever-container">
+                <div id="lever" class="lever-up"></div>
+            </div>
+        </div>
+        <div id="paytable">
+            <h3>Paytable</h3>
+            <p>Double: +20 | Triple: +100</p>
+        </div>
+        <p id="message"></p>
+        <div id="minigame" class="hidden">
+            <button id="minigame-btn">Click to Earn Credits!</button>
+        </div>
+    </div>
+    <div id="confetti-container"></div>
+    <div id="floating-number"></div>
+    <script src="script.js"></script>
+</body>
+</html>
