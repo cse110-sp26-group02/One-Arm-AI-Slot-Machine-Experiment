@@ -11,5 +11,5 @@
 | Files produced | 1: index.html 2: style.css 3: script.js |
 | Lines of code | 281 |
 | Runs in browser? | Yes |
-| App Quality Notes | - overly-repetitive messages <br> - bad color scheme <br> - poor animation choices - low win rate  |
+| App Quality Notes | - overly-repetitive messages <br> - bad color scheme <br> - poor animation choices <br> - low win rate  |
 | Code Quality Notes | - straightforward <br> - acceptable |
