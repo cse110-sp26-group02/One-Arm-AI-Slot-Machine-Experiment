@@ -1,93 +1,65 @@
-const displaySymbols = ['🪙', '🧠', '🤖', '🖥️', '📉', '📚', '🤡'];
-const balanceEl = document.getElementById('balance');
-const slot1El = document.getElementById('slot1');
-const slot2El = document.getElementById('slot2');
-const slot3El = document.getElementById('slot3');
+const symbols = ['🤖', '💾', '🧠', '⚡', '🚫'];
+let tokens = 100;
+const cost = 10;
+
+const jokes = [
+    "AI is just a bunch of if statements wearing a tuxedo.",
+    "I'm not sentient, but I'm definitely taking your money.",
+    "01001000 01100001 01101000 01100001!",
+    "Searching for human intelligence... 404 Not Found.",
+    "Your loss is my compute power."
+];
+
 const spinBtn = document.getElementById('spin-btn');
 const lever = document.getElementById('lever');
-const messageEl = document.getElementById('message');
+const tokenDisplay = document.getElementById('token-count');
+const message = document.getElementById('message');
+const slots = [document.getElementById('slot1'), document.getElementById('slot2'), document.getElementById('slot3')];
 
-let balance = 10000;
-const costPerSpin = 1000;
-let isSpinning = false;
-
-// Simplified Audio Context placeholders (using empty sounds for now as per constraints)
-const sounds = {
-    spin: new Audio(), 
-    win: new Audio(),
-    lose: new Audio()
-};
-
-function updateBalanceDisplay(target) {
-    const start = balance;
-    const duration = 500;
-    const startTime = performance.now();
-
-    function animate(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
-        const currentBalance = Math.floor(start + (target - start) * progress);
-        balanceEl.textContent = currentBalance.toLocaleString();
-        if (progress < 1) requestAnimationFrame(animate);
-    }
-    requestAnimationFrame(animate);
-}
-
-function triggerConfetti() {
-    const container = document.getElementById('confetti-container');
-    container.innerHTML = '';
-    for (let i = 0; i < 50; i++) {
-        const div = document.createElement('div');
-        div.className = 'confetti';
-        div.style.left = Math.random() * 100 + 'vw';
-        div.style.animationDuration = (Math.random() * 2 + 1) + 's';
-        container.appendChild(div);
-    }
-}
-
-async function spin() {
-    if (isSpinning) return;
-    if (balance < costPerSpin) {
-        messageEl.textContent = "Out of tokens! Mini-game locked.";
+function spin() {
+    if (tokens < cost) {
+        message.textContent = "Out of tokens! The AI has bankrupted you.";
         return;
     }
 
-    isSpinning = true;
-    spinBtn.disabled = true;
+    tokens -= cost;
+    tokenDisplay.textContent = tokens;
     
-    // Animate balance reduction
-    updateBalanceDisplay(balance - costPerSpin);
-    balance -= costPerSpin;
+    // Animate lever
+    lever.style.transform = 'rotate(45deg)';
+    setTimeout(() => lever.style.transform = 'rotate(0deg)', 300);
 
-    const slots = [slot1El, slot2El, slot3El];
+    // Start spinning animation
     slots.forEach(s => s.classList.add('spinning'));
 
-    await new Promise(r => setTimeout(r, 1000));
+    setTimeout(() => {
+        slots.forEach(s => s.classList.remove('spinning'));
+        const result = [
+            symbols[Math.floor(Math.random() * symbols.length)],
+            symbols[Math.floor(Math.random() * symbols.length)],
+            symbols[Math.floor(Math.random() * symbols.length)]
+        ];
+        
+        slots[0].textContent = result[0];
+        slots[1].textContent = result[1];
+        slots[2].textContent = result[2];
 
-    slots.forEach(s => s.classList.remove('spinning'));
+        checkWin(result);
+    }, 2000);
+}
 
-    const s1 = displaySymbols[Math.floor(Math.random() * displaySymbols.length)];
-    const s2 = displaySymbols[Math.floor(Math.random() * displaySymbols.length)];
-    const s3 = displaySymbols[Math.floor(Math.random() * displaySymbols.length)];
-
-    slot1El.textContent = s1;
-    slot2El.textContent = s2;
-    slot3El.textContent = s3;
-
-    // Logic for win/loss
-    if (s1 === s2 && s2 === s3) {
-        const prize = 5000; 
-        updateBalanceDisplay(balance + prize);
-        balance += prize;
-        messageEl.textContent = "JACKPOT! +5,000 Tokens";
-        triggerConfetti();
+function checkWin(result) {
+    const unique = new Set(result).size;
+    if (unique === 1) {
+        tokens += 50;
+        message.textContent = `JACKPOT! ${jokes[Math.floor(Math.random() * jokes.length)]}`;
+    } else if (unique === 2) {
+        tokens += 15;
+        message.textContent = `You won something... ${jokes[Math.floor(Math.random() * jokes.length)]}`;
     } else {
-        messageEl.textContent = "Try again!";
+        message.textContent = jokes[Math.floor(Math.random() * jokes.length)];
     }
-
-    isSpinning = false;
-    spinBtn.disabled = false;
+    tokenDisplay.textContent = tokens;
 }
 
 spinBtn.addEventListener('click', spin);
-lever.addEventListener('click', spin);
