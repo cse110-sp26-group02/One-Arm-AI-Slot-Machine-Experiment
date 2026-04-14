@@ -3,35 +3,39 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Casino Royale Slot Machine</title>
+    <title>AI Overlord Slot Machine</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="animated-background"></div>
-    <div class="container">
-        <h1>Golden Fortune</h1>
-        <div class="machine-body">
-            <div id="balance">Tokens: <span id="tokens">100</span></div>
-            <div class="slots-container">
-                <div class="slot" id="slot1">🤖</div>
-                <div class="slot" id="slot2">🤖</div>
-                <div class="slot" id="slot3">🤖</div>
-            </div>
-            <div id="lever-container">
-                <div id="lever" class="lever-up"></div>
-            </div>
+    <div id="game-container">
+        <h1>AI Overlord Slots</h1>
+        
+        <div id="stats">
+            Tokens: <span id="token-count">100</span> | Cost per Spin: <span id="spin-cost">10</span>
         </div>
+
+        <div id="slot-machine">
+            <div class="slot-window">
+                <div class="slot" id="slot1">?</div>
+                <div class="slot" id="slot2">?</div>
+                <div class="slot" id="slot3">?</div>
+            </div>
+            <div id="lever" onclick="spin()"></div>
+        </div>
+
+        <div id="message">Feed the AI tokens to appease it!</div>
+        
         <div id="paytable">
             <h3>Paytable</h3>
             <p>Double: +20 | Triple: +100</p>
         </div>
-        <p id="message"></p>
-        <div id="minigame" class="hidden">
-            <button id="minigame-btn">Click to Earn Credits!</button>
-        </div>
     </div>
-    <div id="confetti-container"></div>
-    <div id="floating-number"></div>
+
+    <!-- Audio placeholders: Add your own .mp3 files in the project directory -->
+    <audio id="sound-spin" src="spin.mp3"></audio>
+    <audio id="sound-win" src="win.mp3"></audio>
+    <audio id="sound-empty" src="empty.mp3"></audio>
+
     <script src="script.js"></script>
 </body>
 </html>
