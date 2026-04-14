@@ -22,8 +22,8 @@
 | Step |Description| Candidate Selection |
 | --- | ---  | --- |
 | 1   |  We found these candidates to be the strongest of the 50. The User Interfaces on all of them were especially interactive, making the game more fun to play compared to others. Furthermore some of these candidates also has separate JS and CSS files while most only had a single HTML file, making the code easier to read. We also found that the desired logic was implemented the best compared to others. |  Candidates: 1, 4, 37, 10, 45   |
-| 2   |      |     |
-| 3   |      |     |
+| 2   |      | Candidates: 1, 45, 37    |
+| 3   | We removed unnecessary description of setting up the model (create 3 files, and basic machine slot behavior). We also wanted to emphasize AI satire more. We also included a minigame for the situation when there are no more tokens.      |Final  Candidate: 1 , 45   |
 
 
 ## Step Observations And Assessments
@@ -51,39 +51,57 @@
   - No concrete pattern in the way Gemini produced the app
   - Better runs had more organized code and structure (HTML, JS, and CSS files)
 
-### Step 2: First Refinement Round (5)
+### Step 2: First Refinement Round (5 -> 3)
 
 - **General observations:**
 - **App assessment:**
 - **Code assessment:**
 - **Overall takeaway:**
 
-### Step 3: Second Refinement Round (3)
+### Step 3: Second Refinement Round (3 -> 2)
 
 - **General observations:**
 - **App assessment:**
 - **Code assessment:**
 - **Overall takeaway:**
 
-### Step 4: Third Refinement Round (2)
+### Step 4: Third Refinement Round (2 -> 1)
 
 - **General observations:**
+  - Better UI/ smooth
+  - Had effects and color
+  - Also had sound effects
 - **App assessment:**
+  - Logic was not flawed (was not one-sided)
+  - Also minigame at the end if no more tokens
 - **Code assessment:**
+  - More organized and structured
+  - More functional as well which was displayed by higher quality app
 - **Overall takeaway:**
+  - App had significant improvements from last run.
+  - More AI satire through minigame and jokes
+  - More interactive and entertaining
 
-### Final Candidate (1)
-
-- **General observations:**
-- **App assessment:**
-- **Code assessment:**
-- **Overall takeaway:**
+### Choosing Final Candidate (1)
+- **Winner:** Candidate 1
+- **Reasoning**
+  - Minigame at the end was more functional compared to competitor
+  - Had better overall effects (confetti/animations)
+  - Better aesthetic (futuristic)
 
 
 
 ## Conclusion and Takeaways
 
 - What worked well:
+  - Code ran every single time.
+  - Proper scoring system
+  - Always had some sort of AI satire
 - What did not work well:
+  - UI was often lackluster
+  - Lever was buggy (couldn't interact or press)
+  - Sometimes something in the prompt weren't addressed
 - Whether the final app met the assignment goals:
+  - Yes the final app met all of the goals. Was a slot machine with the desired behavior the mocked AI.
 - Whether the final code was easy to understand and refine:
+  - Yes the final code is easy to understand and read. We think it is definitely possible to refine with the way it is structured and organized.
