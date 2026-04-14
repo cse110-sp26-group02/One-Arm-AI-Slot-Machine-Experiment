@@ -11,5 +11,5 @@
 | Files produced | 1: index.html 2: style.css 3: script.js |
 | Lines of code | COUNTING |
 | Runs in browser? | Yes |
-| App Quality Notes | - TBD <br>  |
-| Code Quality Notes | - TBD <br>  |
+| App Quality Notes | - awards partial-match <br> - acceptable/appropriate color scheme <br> - wider variety of messages <br> |
+| Code Quality Notes | - acceptable <br>  |
