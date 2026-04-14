@@ -3,7 +3,7 @@
 | Run ID |  candidate-011 |
 | Timestamp| 2026-04-13T16:01:33-08:00 |
 | Model + version string | gemini-3.1-flash-lite-preview |
-| Input tokens | 41 |
+| Input tokens | 41 (one-shot) |
 | Output tokens | 3,587 |
 | Total tokens | 3,628 |
 | Wall-clock time (s) | 2m 14s |
