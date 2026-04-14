@@ -21,9 +21,9 @@
 
 | Step |Description| Candidate Selection |
 | --- | ---  | --- |
-| 1   |  We found these candidates to be the strongest of the 50. The User Interfaces on all of them were especially interactive, making the game more fun to play compared to others. Furthermore some of these candidates also has separate JS and CSS files while most only had a single HTML file, making the code easier to read. We also found that the desired logic was implemented the best compared to others. |  Candidates: 1, 4, 37, 10, 45   |
-| 2   | We bombarded the model with features to add, and found that these candidates were the only working products. We emphasized existence of a lever, sounds, paytable, minigames, etc. but only got some of these in our final products.   | Candidates: 1, 45, 37    |
-| 3   | We removed unnecessary description of setting up the model (create 3 files, and basic machine slot behavior). We also wanted to emphasize AI satire more. We also included a minigame for the situation when there are no more tokens.      |Final  Candidate: 1 , 45   |
+| 1   |  We first wanted to the model to try to organize the code written more by asking it to divide the code into 3 files (HTML, JS, CSS) unlike for some runs which only had the HTML file. We bombarded the model with features to add, and found that these candidates were the only working products. We emphasized existence of a lever, sounds, paytable, minigames, etc. This would make the machine more interactive and fun. We found these candidates we chose to be the strongest of the 50. The User Interfaces on all of them were especially interactive, making the game more fun to play compared to others. Furthermore some of these candidates also has separate JS and CSS files while most only had a single HTML file, making the code easier to read. We also found that the desired logic was implemented the best compared to others. |  Candidates: 1, 4, 37, 10, 45   |
+| 2   | For this refinement step, we attempted to address some of the pitfalls that the runs had in trying to implement our desired features from the last prompt. That is, some runs had issues with the lever and slot spinning, so we particularly addressed that in this prompt in hopes this would be corrected. Furthermore, we cut some of the features that we said to include in the last prompt since we felt it might've been too much for the model, explaining its implementation of the basic features. We emphasized a more aesthetic looking UI too. The candidates we are working with in this step, had the best design, animation, and followed instructions the best across the candidates. 1 and 45 had unique color schemes, which played a role in their selection. 37 had a good spinning animation and humorous comments.   | Candidates: 1, 45, 37    |
+| 3   | We removed unnecessary description of setting up the model (create 3 files, and basic machine slot behavior). We also wanted to emphasize AI satire more since we felt this could've been added in more places other than the text screen that displayed the jokes. We also reintroduced the feature of a minigame for the situation when there are no more tokens in hopes to add interactivity and a better experience to the machine slot. For the candidates we're working with in this refinement step, design played an important role in their selection. We felt they certainly looked the best with clear color schemes and also was able to implement our desired features in the previous prompt the best; better animation of slots spinning, properly working lever, etc.   |Final  Candidate: 1 , 45   |
 
 
 ## Step Observations And Assessments
@@ -69,7 +69,7 @@
   - Providing context to the product is important to a model without memory
   - If context is not provided, expect models to have varying interpretations of what you want
   - The best runs were the ones that followed the most instructions.
-  
+
 ### Step 3: Second Refinement Round (3 -> 2)
 
 - **General observations:**
@@ -89,19 +89,21 @@
 ### Step 4: Third Refinement Round (2 -> 1)
 
 - **General observations:**
-  - Better UI/ smooth
-  - Had effects and color
-  - Also had sound effects
+  - Better UI/ smooth animation
+  - Had extravagant effects and fun colors
+  - Also had sound effects that added to experience.
 - **App assessment:**
-  - Logic was not flawed (was not one-sided)
-  - Also minigame at the end if no more tokens
+  - Logic was not flawed (was not one-sided and felt balanced)
+  - Also working minigame at the end if no more tokens
+  - AI Satire was also more present, now with more unique jokes on text screen and also relevant in the minigame
 - **Code assessment:**
-  - More organized and structured
+  - More organized and structured, making the code easier to read
   - More functional as well which was displayed by higher quality app
+  - Variable names were easy to understand
 - **Overall takeaway:**
-  - App had significant improvements from last run.
+  - App had significant improvements from last run in aesthetic, experience, and functionality.
   - More AI satire through minigame and jokes
-  - More interactive and entertaining
+  - More interactive and entertaining with added sound effects and vibrant colors
 
 ### Choosing Final Candidate (1)
 - **Winner:** Candidate 1
@@ -116,13 +118,13 @@
 
 - What worked well:
   - Code ran every single time.
-  - Proper scoring system
-  - Always had some sort of AI satire
+  - Proper scoring system.
+  - Always had some sort of AI satire.
 - What did not work well:
-  - UI was often lackluster
+  - UI was often lackluster.
   - Lever was buggy (couldn't interact or press)
-  - Sometimes something in the prompt weren't addressed
+  - Sometimes features and details in the prompt weren't addressed
 - Whether the final app met the assignment goals:
-  - Yes the final app met all of the goals. Was a slot machine with the desired behavior the mocked AI.
+  - Yes the final app met all of the goals. Was a slot machine with the desired behavior that mocked AI.
 - Whether the final code was easy to understand and refine:
-  - Yes the final code is easy to understand and read. We think it is definitely possible to refine with the way it is structured and organized.
+  - Yes the final code is easy to understand and read. We think it is definitely possible to refine it further since it is organized in a way that is easy to follow (HTML, JS, CSS, comments, parsable variable names, etc).

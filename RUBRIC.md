@@ -1,6 +1,6 @@
 # Evaluation Rubric
 
-Rubric used to judge each baseline run and refinement run for the slot machine app. Record assessment in each runs Markdown assessment/observations file.
+Rubric used to judge each baseline run and refinement run for the slot machine app.
 
 ## Scoring Scale
 
