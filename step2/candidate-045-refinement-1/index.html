@@ -9,15 +9,11 @@
 <body>
     <div class="terminal-container">
         <header>
-            <div class="header-line">AI_TOKEN_CASINO_OS [Version 1.0.4]</div>
-            <div class="header-line">(c) 2026 OpenAI-ish Corp. All rights reserved.</div>
-            <div class="header-line">-------------------------------------------</div>
+            <h1>AI TOKEN CASINO</h1>
         </header>
 
         <section class="quota-display">
-            <span class="label">CURRENT_API_QUOTA:</span>
-            <span id="token-balance" class="value">100,000</span>
-            <span class="unit">TOKENS</span>
+            <span>TOKENS: <span id="token-balance">100,000</span></span>
         </section>
 
         <main class="slot-machine">
@@ -26,21 +22,12 @@
                 <div class="reel" id="reel-2">🤖</div>
                 <div class="reel" id="reel-3">🤖</div>
             </div>
-
-            <div class="controls">
-                <button id="spin-btn">> GENERATE_RESPONSE</button>
+            <div class="lever-container" id="lever-container">
+                <div class="lever" id="lever">
+                    <div class="lever-handle"></div>
+                </div>
             </div>
         </main>
-
-        <section class="console">
-            <div id="console-logs">
-                <div class="log">System initialized...</div>
-                <div class="log">Waiting for prompt...</div>
-            </div>
-            <div class="cursor-line">
-                <span class="prompt">></span><span class="cursor">_</span>
-            </div>
-        </section>
     </div>
     <script src="script.js"></script>
 </body>
