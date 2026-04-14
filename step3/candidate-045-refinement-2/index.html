@@ -3,31 +3,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI TOKEN CASINO v1.0.4-beta</title>
+    <title>AI Overlord Slot Machine</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="terminal-container">
-        <header>
-            <h1>AI TOKEN CASINO</h1>
-        </header>
+    <div id="game-container">
+        <h1>AI Overlord Slot Machine</h1>
+        <div id="stats">
+            <p>Tokens: <span id="token-count">100</span></p>
+            <p>Spin Cost: 5 Tokens</p>
+        </div>
+        
+        <div id="slot-machine">
+            <div class="slot" id="slot1">?</div>
+            <div class="slot" id="slot2">?</div>
+            <div class="slot" id="slot3">?</div>
+            <div id="lever"></div>
+        </div>
 
-        <section class="quota-display">
-            <span>TOKENS: <span id="token-balance">100,000</span></span>
-        </section>
+        <div id="message">Insert tokens to appease the AI Overlord.</div>
 
-        <main class="slot-machine">
-            <div class="reels">
-                <div class="reel" id="reel-1">🤖</div>
-                <div class="reel" id="reel-2">🤖</div>
-                <div class="reel" id="reel-3">🤖</div>
-            </div>
-            <div class="lever-container" id="lever-container">
-                <div class="lever" id="lever">
-                    <div class="lever-handle"></div>
-                </div>
-            </div>
-        </main>
+        <div id="paytable">
+            <h3>Paytable</h3>
+            <ul>
+                <li>Double AI: 10 Tokens</li>
+                <li>Triple AI: 50 Tokens</li>
+            </ul>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
