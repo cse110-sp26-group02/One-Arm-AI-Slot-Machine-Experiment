@@ -11,5 +11,5 @@
 | Files produced | 1: index.html 2: style.css 3: script.js |
 | Lines of code | COUNTING |
 | Runs in browser? | Yes |
-| App Quality Notes | - TBD <br>  |
-| Code Quality Notes | - TBD <br>  |
+| App Quality Notes | - overly-repetitive messages <br> - bad color scheme <br> - poor animation choices - low win rate  |
+| Code Quality Notes | - straightforward <br> - acceptable |
