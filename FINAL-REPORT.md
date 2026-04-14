@@ -28,8 +28,7 @@
 
 ## Step Observations And Assessments
 
-
-### Step 1: First Runs (50)
+### Step 1: First Refinement Round (50 -> 5)
 
 - **General observations:**
   - Website ran every time and code worked
@@ -51,7 +50,7 @@
   - No concrete pattern in the way Gemini produced the app
   - Better runs had more organized code and structure (HTML, JS, and CSS files)
 
-### Step 2: First Refinement Round (5 -> 3)
+### Step 2: Second Refinement Round (5 -> 3)
 
 - **General observations:**
   - Some candidates took completely new directions and were no longer working slot machines
@@ -70,7 +69,7 @@
   - If context is not provided, expect models to have varying interpretations of what you want
   - The best runs were the ones that followed the most instructions.
 
-### Step 3: Second Refinement Round (3 -> 2)
+### Step 3: Third Refinement Round (3 -> 2)
 
 - **General observations:**
   - The extent to which the tool followed instructions was high in this round - this was because we provided more context in this round of refining.
@@ -86,7 +85,7 @@
   - Specificity and context matter - even for already existing products.
   - Design choices tend to be final deciding factors.
 
-### Step 4: Third Refinement Round (2 -> 1)
+### Step 4: Fourth Refinement Round (2 -> 1)
 
 - **General observations:**
   - Better UI/ smooth animation
