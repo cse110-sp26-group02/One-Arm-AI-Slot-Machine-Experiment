@@ -1,5 +1,5 @@
 ## Top candidate
-1. 1. candidate-001-refinement-3
+1. candidate-001-refinement-3
 
 Reasoning
 - Had effects for when the slot won which made it more fun and interactive.
