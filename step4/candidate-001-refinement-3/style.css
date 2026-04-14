@@ -1,0 +1,69 @@
+body {
+    background: #1a1a1a;
+    color: #fff;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#game-container {
+    text-align: center;
+    background: #333;
+    padding: 20px;
+    border-radius: 15px;
+    border: 5px solid #555;
+}
+
+#slot-machine {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin: 20px 0;
+    position: relative;
+    padding: 20px;
+    background: #000;
+    border-radius: 10px;
+}
+
+.slot {
+    width: 80px;
+    height: 80px;
+    background: #444;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    border: 3px solid #777;
+    border-radius: 5px;
+}
+
+.spinning {
+    animation: spin-anim 0.1s infinite;
+}
+
+@keyframes spin-anim {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+#lever {
+    width: 20px;
+    height: 100px;
+    background: red;
+    position: absolute;
+    right: -40px;
+    top: 20px;
+    transform-origin: 50% 10%;
+    transition: transform 0.3s;
+    cursor: pointer;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 18px;
+    cursor: pointer;
+}

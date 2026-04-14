@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Overlord Slot Machine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-container">
+        <h1>AI Overlord Slot Machine</h1>
+        
+        <div id="stats">
+            <p>Tokens: <span id="token-count">100</span></p>
+            <p>Spin Cost: 10</p>
+        </div>
+
+        <div id="slot-machine">
+            <div class="slot" id="slot1">?</div>
+            <div class="slot" id="slot2">?</div>
+            <div class="slot" id="slot3">?</div>
+            
+            <div id="lever"></div>
+        </div>
+
+        <button id="spin-btn">SPIN</button>
+        <p id="message"></p>
+
+        <div id="paytable">
+            <h3>Paytable</h3>
+            <ul>
+                <li>3 Identical Icons: +50 tokens</li>
+                <li>2 Identical Icons: +15 tokens</li>
+            </ul>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
