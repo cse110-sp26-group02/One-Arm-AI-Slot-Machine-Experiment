@@ -1,143 +1,114 @@
 document.addEventListener('DOMContentLoaded', () => {
     const symbols = ['🤖', '🖥️', '🧠', '💩', '🛑'];
-    const symbolWeights = {
-        '🤖': 10,   // AGI - Jackpot
-        '🖥️': 20,   // GPU - Big win
-        '🧠': 30,   // Parameters - Medium win
-        '💩': 40,   // Hallucination - Low win
-        '🛑': 20    // Rate Limit - Loss
-    };
-
+    const symbolWeights = {'🤖': 10, '🖥️': 20, '🧠': 30, '💩': 40, '🛑': 20};
+    
     let balance = 100000;
     const spinCost = 1000;
-    const winMultipliers = {
-        '🤖': 50,
-        '🖥️': 15,
-        '🧠': 5,
-        '💩': 2,
-        '🛑': 0
-    };
+    const winMultipliers = {'🤖': 50, '🖥️': 15, '🧠': 5, '💩': 2, '🛑': 0};
 
-    const spinBtn = document.getElementById('spin-btn');
     const balanceDisplay = document.getElementById('token-balance');
-    const reels = [
-        document.getElementById('reel-1'),
-        document.getElementById('reel-2'),
-        document.getElementById('reel-3')
-    ];
-    const consoleLogs = document.getElementById('console-logs');
+    const lever = document.getElementById('lever');
+    const leverContainer = document.getElementById('lever-container');
+    const reels = [document.getElementById('reel-1'), document.getElementById('reel-2'), document.getElementById('reel-3')];
+    const container = document.querySelector('.terminal-container');
 
-    const snarkyMessages = {
-        start: [
-            "Initializing neural weights...",
-            "Prompting the black box...",
-            "Burning through H100 cycles...",
-            "Consulting the latent space...",
-            "Synthesizing corporate-approved garbage..."
-        ],
-        win: [
-            "AGI achieved. Just kidding, here's some tokens.",
-            "Alignment successful. Tokens distributed.",
-            "A probabilistic miracle! You win.",
-            "Your prompt engineering was actually effective.",
-            "Hallucination successful! Numbers go up."
-        ],
-        lose: [
-            "As an AI language model, I have consumed your tokens.",
-            "Error 429: Your luck has been rate-limited.",
-            "I'm sorry, I cannot fulfill this request for a win.",
-            "Loss detected. Don't worry, I'll use your data for training.",
-            "Hallucinating a jackpot... wait, no, you lost."
-        ],
-        noTokens: [
-            "Quota exceeded. Please upgrade to Pro for $20/month.",
-            "Free tier limits reached. Access denied.",
-            "Insufficient compute. Please insert more GPU hours."
-        ]
+    const audio = {
+        spin: new Audio('spin.mp3'),
+        win: new Audio('win.mp3'),
+        loss: new Audio('loss.mp3')
     };
 
-    function addLog(text, type = '') {
-        const log = document.createElement('div');
-        log.className = 'log ' + type;
-        log.textContent = `[${new Date().toLocaleTimeString()}] ${text}`;
-        consoleLogs.appendChild(log);
-        consoleLogs.parentElement.scrollTop = consoleLogs.parentElement.scrollHeight;
-        
-        // Keep only last 10 logs
-        while (consoleLogs.children.length > 10) {
-            consoleLogs.removeChild(consoleLogs.firstChild);
+    let isSpinning = false;
+    let displayedBalance = balance;
+
+    function createConfetti() {
+        for (let i = 0; i < 50; i++) {
+            const div = document.createElement('div');
+            div.className = 'confetti';
+            div.style.left = Math.random() * 100 + '%';
+            div.style.backgroundColor = ['#ffd700', '#ff0000'][Math.floor(Math.random() * 2)];
+            container.appendChild(div);
+            setTimeout(() => div.remove(), 2000);
         }
+    }
+
+    function showScore(amount, x, y) {
+        const div = document.createElement('div');
+        div.className = 'score-indicator';
+        div.textContent = (amount >= 0 ? '+' : '') + amount.toLocaleString();
+        div.style.left = x + 'px';
+        div.style.top = y + 'px';
+        container.appendChild(div);
+        setTimeout(() => div.remove(), 1000);
+    }
+
+    function updateBalanceDisplay(target) {
+        const step = (target - displayedBalance) / 10;
+        if (Math.abs(target - displayedBalance) < 1) {
+            displayedBalance = target;
+        } else {
+            displayedBalance += step;
+            requestAnimationFrame(() => updateBalanceDisplay(target));
+        }
+        balanceDisplay.textContent = Math.round(displayedBalance).toLocaleString();
     }
 
     function getRandomSymbol() {
         const totalWeight = Object.values(symbolWeights).reduce((a, b) => a + b, 0);
         let random = Math.random() * totalWeight;
         for (const symbol of symbols) {
-            if (random < symbolWeights[symbol]) {
-                return symbol;
-            }
+            if (random < symbolWeights[symbol]) return symbol;
             random -= symbolWeights[symbol];
         }
         return symbols[0];
     }
 
     async function spin() {
+        if (isSpinning) return;
         if (balance < spinCost) {
-            addLog(snarkyMessages.noTokens[Math.floor(Math.random() * snarkyMessages.noTokens.length)], 'error');
+            audio.loss.play().catch(() => {});
             return;
         }
-
-        // Deduct tokens
+        
+        isSpinning = true;
         balance -= spinCost;
-        balanceDisplay.textContent = balance.toLocaleString();
-        spinBtn.disabled = true;
+        updateBalanceDisplay(balance);
+        audio.spin.play().catch(() => {});
 
-        addLog(snarkyMessages.start[Math.floor(Math.random() * snarkyMessages.start.length)]);
-
-        // Start animation
+        lever.classList.add('pulled');
         reels.forEach(reel => reel.classList.add('spinning'));
 
-        // Determine results
-        const result = [getRandomSymbol(), getRandomSymbol(), getRandomSymbol()];
-
-        // Wait for "compute"
         await new Promise(resolve => setTimeout(resolve, 1500));
 
-        // Stop animation and set results
+        const result = [getRandomSymbol(), getRandomSymbol(), getRandomSymbol()];
         reels.forEach((reel, i) => {
             reel.classList.remove('spinning');
             reel.textContent = result[i];
         });
 
-        // Evaluate
         evaluateWin(result);
-        spinBtn.disabled = false;
+        lever.classList.remove('pulled');
+        isSpinning = false;
     }
 
     function evaluateWin(result) {
         const [s1, s2, s3] = result;
-        
         if (s1 === s2 && s2 === s3) {
-            const multiplier = winMultipliers[s1];
-            if (multiplier > 0) {
-                const winAmount = spinCost * multiplier;
+            const multiplier = winMultipliers[s1] || 0;
+            const winAmount = spinCost * multiplier;
+            if (winAmount > 0) {
                 balance += winAmount;
-                addLog(snarkyMessages.win[Math.floor(Math.random() * snarkyMessages.win.length)], 'success');
-                addLog(`PROFIT: +${winAmount.toLocaleString()} TOKENS`, 'success');
-            } else {
-                addLog("CRITICAL_FAILURE: Triple Rate Limit detected.", 'error');
-                addLog(snarkyMessages.lose[Math.floor(Math.random() * snarkyMessages.lose.length)], 'error');
+                showScore(winAmount, 300, 200);
+                audio.win.play().catch(() => {});
+                if (multiplier >= 15) createConfetti();
             }
+            updateBalanceDisplay(balance);
         } else if (s1 === s2 || s2 === s3 || s1 === s3) {
-            // Partial win? Maybe just 1x back
             balance += spinCost;
-            addLog("Low-confidence result. Partial refund granted.");
-        } else {
-            addLog(snarkyMessages.lose[Math.floor(Math.random() * snarkyMessages.lose.length)], 'error');
+            updateBalanceDisplay(balance);
+            showScore(spinCost, 300, 200);
         }
-
-        balanceDisplay.textContent = balance.toLocaleString();
     }
 
-    spinBtn.addEventListener('click', spin);
+    leverContainer.addEventListener('click', spin);
 });

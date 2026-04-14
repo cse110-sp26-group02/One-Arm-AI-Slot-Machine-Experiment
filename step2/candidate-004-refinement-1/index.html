@@ -3,51 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Token Slot Machine</title>
+    <title>Casino Royale Slot Machine</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+    <div class="animated-background"></div>
     <div class="container">
         <header>
-            <h1>Generative Casino</h1>
+            <h1>CASINO ROYALE</h1>
             <div class="stats">
                 <div class="stat-box">
-                    <span class="label">Context Window:</span>
-                    <span id="balance" class="value">1000</span> <span class="unit">tokens</span>
-                </div>
-                <div class="stat-box">
-                    <span class="label">Cost per Inference:</span>
-                    <span id="cost" class="value">10</span> <span class="unit">tokens</span>
+                    <span class="label">CREDITS:</span>
+                    <span id="balance" class="value">1000</span>
                 </div>
             </div>
         </header>
 
         <main class="slot-machine">
             <div class="reels-container">
-                <div class="reel" id="reel-0">
-                    <div class="symbols"></div>
-                </div>
-                <div class="reel" id="reel-1">
-                    <div class="symbols"></div>
-                </div>
-                <div class="reel" id="reel-2">
-                    <div class="symbols"></div>
-                </div>
+                <div class="reel" id="reel-0"><div class="symbols">🧠</div></div>
+                <div class="reel" id="reel-1"><div class="symbols">🤖</div></div>
+                <div class="reel" id="reel-2"><div class="symbols">📈</div></div>
             </div>
             
-            <div class="controls">
-                <button id="spin-button" class="btn">Generate Tokens (Spin)</button>
+            <div class="lever-container">
+                <div class="lever" id="lever"></div>
             </div>
 
             <div class="status-board">
-                <p id="status-message">Awaiting prompt...</p>
+                <p id="status-message">Pull the lever to play!</p>
+                <div id="floating-number" class="floating-number"></div>
             </div>
         </main>
         
         <footer>
-            <p>Paytable: 🧠🧠🧠 (+500), 🤖🤖🤖 (+250), 📈📈📈 (+100), 💸💸💸 (-50)</p>
+            <div class="paytable">
+                <h3>PAYTABLE</h3>
+                <p>🧠🧠🧠: 500 | 🤖🤖🤖: 250 | 📈📈📈: 100</p>
+                <p>Double: See Special Rules</p>
+            </div>
         </footer>
     </div>
+
+    <!-- Minigame Overlay -->
+    <div id="minigame-overlay" class="hidden">
+        <div class="minigame-content">
+            <h2>Out of Credits!</h2>
+            <p>Play the Lucky Clicker to earn more!</p>
+            <button id="minigame-btn" class="btn">CLICK FAST!</button>
+        </div>
+    </div>
+
     <script src="script.js"></script>
 </body>
 </html>

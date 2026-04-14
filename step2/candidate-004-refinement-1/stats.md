@@ -1,15 +1,15 @@
 | Field   | Notes |
 |:----------:|:----------:|
 | Run ID |  candidate-004 |
-| Timestamp| 2026-04-13 15:58:35 |
+| Timestamp| 2026-04-14T00:25:57.837Z |
 | Model + version string| gemini-3.1-flash-lite-preview |
-| Input tokens | 47,244 |
-| Output tokens | 5,031 |
-| Total tokens | 52,275 |
-| Wall-clock time (s) | 6m 3s|
-| Tool-reported time (s) | 38.1s|
+| Input tokens | 17362 |
+| Output tokens | 2088 |
+| Total tokens | 19450 |
+| Wall-clock time (s) | 1m 35s|
+| Tool-reported time (s) | 27.4s|
 | Files produced | 1: index.html 2: style.css 3: script.js |
-| Lines of code | 447 |
+| Lines of code | inserted: 217<br> deleted: 446 |
 | Runs in browser? | Yes |
-| App Quality Notes | - Ok<br>  |
-| Code Quality Notes | - Code looks ok<br> - No comments for clarity<br>  |
+| App Quality Notes | - Bad: the slot did not change, the user constantly wins, rolling pair rules not shown  |
+| Code Quality Notes | - Code looks ok<br> - No comments for clarity<br> |

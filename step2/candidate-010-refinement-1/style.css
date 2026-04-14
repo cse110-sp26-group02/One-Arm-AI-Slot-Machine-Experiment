@@ -1,0 +1,47 @@
+body {
+    margin: 0;
+    overflow: hidden;
+    background: linear-gradient(45deg, #8b0000, #d4af37, #8b0000);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    font-family: sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+@keyframes gradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+#machine {
+    background: #333;
+    padding: 20px;
+    border: 10px solid #d4af37;
+    border-radius: 20px;
+    display: flex;
+    gap: 20px;
+    color: white;
+}
+
+.reel {
+    width: 60px;
+    height: 60px;
+    background: white;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    font-weight: bold;
+}
+
+#lever {
+    cursor: pointer;
+    background: #d4af37;
+    padding: 20px;
+    border-radius: 10px;
+}
