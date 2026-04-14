@@ -1,0 +1,45 @@
+body {
+    background-color: #1a1a1a;
+    color: #00ff00;
+    font-family: 'Courier New', Courier, monospace;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+#game-container {
+    border: 2px solid #333;
+    padding: 20px;
+    background: #000;
+    text-align: center;
+    width: 300px;
+}
+
+#reels {
+    font-size: 40px;
+    margin: 20px 0;
+}
+
+.reel {
+    border: 1px solid #00ff00;
+    padding: 10px;
+    margin: 5px;
+    display: inline-block;
+    width: 40px;
+}
+
+button {
+    background: #00ff00;
+    color: #000;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:disabled {
+    background: #555;
+    cursor: not-allowed;
+}
