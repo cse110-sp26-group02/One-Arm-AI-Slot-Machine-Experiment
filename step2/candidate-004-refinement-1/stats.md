@@ -11,5 +11,5 @@
 | Files produced | 1: index.html 2: style.css 3: script.js |
 | Lines of code | inserted: 217<br> deleted: 446 |
 | Runs in browser? | Yes |
-| App Quality Notes | - Ok<br>  |
-| Code Quality Notes | - Code looks ok<br> - No comments for clarity<br>  |
+| App Quality Notes | - Bad: the slot did not change, the user constantly wins, rolling pair rules not shown  |
+| Code Quality Notes | - Code looks ok<br> - No comments for clarity<br> |
